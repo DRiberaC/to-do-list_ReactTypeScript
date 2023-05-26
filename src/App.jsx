@@ -1,10 +1,11 @@
 import React from 'react'
+import { MainLayout } from './constants/MainLayout'
 
 function App() {
   return (
-    <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
+    <MainLayout>
+      <h2>Empieza a organizar tu dia</h2>
+    </MainLayout>
   )
 }
 
