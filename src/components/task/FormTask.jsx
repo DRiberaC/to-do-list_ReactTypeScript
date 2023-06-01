@@ -8,16 +8,18 @@ export const FormTask = ({ tasks, setTasks }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        let newId = 1
-        if (tasks.length == 0) {
-            newId = 1;
-        } else {
-            newId = Math.max(...tasks.map(task => task.id));
-        }
+        if (title.trim().length == 0 || description.trim().length == 0)
+            return;
 
-        const newTask = { title, description, status: false, id: newId + 1 }
 
-        setTasks([...tasks, newTask])
+        const newTask = { title, description, status: false, id: new Date }
+
+        const AllTask = [...tasks, newTask];
+
+        setTasks(AllTask)
+
+        localStorage.setItem('tasks', JSON.stringify(AllTask));
+
         setTitle('')
         setDescription('')
     }
